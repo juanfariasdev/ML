@@ -1,4 +1,10 @@
 import cv2
+import os
+
+
+
+script_directory = os.path.dirname(os.path.abspath(__file__))
+parent_directory = os.path.join(script_directory, os.pardir, os.pardir)
 
 def initialize_tracker():
     return cv2.TrackerCSRT_create()
@@ -26,7 +32,9 @@ def main():
     tracker = initialize_tracker()
 
     # Inicializar o vídeo
-    video_path = "../../assets/video3.mp4"
+    video_filename = "video3.mp4"
+    video_path = os.path.join(parent_directory, "assets", video_filename)
+    print(video_path)
     cap = initialize_video_capture(video_path)
 
     # Ler o primeiro frame

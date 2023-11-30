@@ -1,22 +1,36 @@
 import cv2
 import numpy as np
+import os
+
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Carregar o modelo YOLO
-yolo_weights_path = "config/yolov3-spp.weights"
-yolo_config_path = "config/yolov3-spp.cfg"
+yolo_weights_file = "yolov3-spp.weights"
+yolo_weights_path = os.path.join(script_directory, "config", yolo_weights_file)
+
+
+yolo_config_file = "yolov3.spp.cfg"
+yolo_config_path = os.path.join(script_directory, "config", yolo_config_file)
 yolo_net = cv2.dnn.readNet(yolo_weights_path, yolo_config_path)
 
 # Carregar as classes
-classes_path = "config/coco.names"
-with open(classes_path, "r") as classes_file:
+yolo_classes_file = "coco.names"
+yolo_classes_path = os.path.join(script_directory, "config", yolo_classes_file)
+
+with open(yolo_classes_path, "r") as classes_file:
     classes = [line.strip() for line in classes_file.readlines()]
 
 # Obter os nomes das camadas de saída
 output_layer_names = yolo_net.getUnconnectedOutLayersNames()
 
 # Carregar o vídeo
-video_path = "../../../assets/video1.mp4"
-video_capture = cv2.VideoCapture(video_path)
+yolo_video_file = "video1.mp4"
+parent_directory = os.path.join(script_directory, os.pardir, os.pardir)
+yolo_video_path = os.path.join(parent_directory, "assets", yolo_video_file)
+
+print(yolo_video_path)
+
+video_capture = cv2.VideoCapture(yolo_video_path)
 
 while True:
     # Capturar o próximo frame do vídeo

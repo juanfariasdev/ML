@@ -5,7 +5,7 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 parent_directory = os.path.join(script_directory, os.pardir, os.pardir)
 
 def initialize_tracker():
-    return cv2.TrackerKCF_create()
+    return cv2.TrackerCSRT_create()
 
 def initialize_video_capture(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -30,7 +30,7 @@ def main():
     tracker = initialize_tracker()
 
     # Inicializar o vídeo
-    video_filename = "video2.mp4"
+    video_filename = "video1.mp4"
     video_path = os.path.join(parent_directory, "assets", video_filename)
     cap = initialize_video_capture(video_path)
 

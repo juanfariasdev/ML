@@ -1,2 +1,3 @@
-opencv-python
-opencv-contrib-python
+# Bibliotecas OpenCV para processamento de imagem e visão computacional
+opencv-python==4.8.1.78
+opencv-contrib-python==4.8.1.78

@@ -32,7 +32,7 @@ def main():
     tracker = initialize_tracker()
 
     # Inicializar o vídeo
-    video_filename = "video3.mp4"
+    video_filename = "video1.mp4"
     video_path = os.path.join(parent_directory, "assets", video_filename)
     print(video_path)
     cap = initialize_video_capture(video_path)

@@ -5,7 +5,7 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 parent_directory = os.path.join(script_directory, os.pardir, os.pardir)
 
 def initialize_tracker():
-    return cv2.TrackerCSRT_create()
+    return cv2.TrackerKCF_create()
 
 def initialize_video_capture(video_path):
     cap = cv2.VideoCapture(video_path)
